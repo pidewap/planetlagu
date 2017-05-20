@@ -17,18 +17,13 @@ $uarand=$uar[$uarr];
 ini_set('default_charset',"UTF-8");
 ini_set('user_agent',$uarand."\r\naccept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1\r\naccept_charset: $_SERVER[HTTP_ACCEPT_CHARSET]\r\naccept_language: bahasa");
 
-if($_GET['v'] == '1') {
-$v='http://uyeshare.com/site_lagu-terbaru.xhtml'.$_SERVER[REQUEST_URI].'';
-}
-
+$v='http://uyeshare.com/site_lagu-terbaru.xhtml?get-n='.$_GET['get-n'].'';
 $f=file(''.$v.'');
 $gg=@implode($f);
 $bod=maling($gg, '<body>', '</body>');
 
-if($_GET['v'] == '1') {
 $bod=str_replace('/site_index-of-mp3-detile.xhtml?cmid=', '/up.php?url=http://uyeshare.com/site_index-of-mp3-detile.xhtml?cmid=', $bod);
-$bod=str_replace('/site_lagu-terbaru.xhtml?get-n=', '/lagu.php?v=1&get-n=', $bod);
-}
+$bod=str_replace('/site_lagu-terbaru.xhtml?get-n=', '/lagu.php?get-n=', $bod);
 
 echo $bod;
 ?>
