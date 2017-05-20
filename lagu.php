@@ -26,5 +26,5 @@ $bod=str_replace('/site_index-of-mp3-detile.xhtml?cmid=', '/up.php?url=http://uy
 $bod=str_replace('/site_lagu-terbaru.xhtml?get-n=', '/lagu.php?get-n=', $bod);
 $bod = preg_replace("#(.*)<head>(.*?)</head>(.*)#is", '$2', $bod);
 
-echo strip_tags($bod, '<div><a>');
+echo strip_tags($bod, '<div><a><hr><center><br>');
 ?>
