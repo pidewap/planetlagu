@@ -30,11 +30,7 @@ if($_GET['v'] == '4') {
 $v='arbesdj';
 }
 
-if(!empty($_GET['get-number'])){
-$nub=$_GET['get-number'];}else{
-$nub='1';}
-
-$f=file(''.$v.'&get-number='.$nub.'');
+$f=file(''.$v.''.$_SERVER[REQUEST_URI].'');
 $gg=@implode($f);
 $bod=maling($gg, '<body>', '</body>');
 
