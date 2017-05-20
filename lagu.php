@@ -24,6 +24,7 @@ $bod=maling($gg, '<body>', '</body>');
 
 $bod=str_replace('/site_index-of-mp3-detile.xhtml?cmid=', '/up.php?url=http://uyeshare.com/site_index-of-mp3-detile.xhtml?cmid=', $bod);
 $bod=str_replace('/site_lagu-terbaru.xhtml?get-n=', '/lagu.php?get-n=', $bod);
+$bod = preg_replace("#(.*)<head>(.*?)</head>(.*)#is", '$2', $bod);
 
-echo $bod;
+echo strip_tags($bod, '<div><a>');
 ?>
