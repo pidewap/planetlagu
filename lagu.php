@@ -18,7 +18,7 @@ ini_set('default_charset',"UTF-8");
 ini_set('user_agent',$uarand."\r\naccept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1\r\naccept_charset: $_SERVER[HTTP_ACCEPT_CHARSET]\r\naccept_language: bahasa");
 
 if($_GET['v'] == '1') {
-$v='uyeshare';
+$v='http://uyeshare.com/site_lagu-terbaru.xhtml';
 }
 if($_GET['v'] == '2') {
 $v='bursamp3';
@@ -34,13 +34,13 @@ if(!empty($_GET['get-number'])){
 $nub=$_GET['get-number'];}else{
 $nub='1';}
 
-$f=file('http://'.$v.'.wapka.mobi/music/list/?get-number='.$nub.'');
+$f=file(''.$v.'&get-number='.$nub.'');
 $gg=@implode($f);
 $bod=maling($gg, '<body>', '</body>');
 
 if($_GET['v'] == '1') {
-$bod=str_replace('/site_original-download.xhtml?cmid=', '/up.php?url=http://uyeshare.wapka.mobi/music/view/', $bod);
-$bod=str_replace('/music/list/?', '/lagu.php?v=1&', $bod);
+$bod=str_replace('/site_index-of-mp3-detile.xhtml?cmid=', '/up.php?url=http://uyeshare.wapka.mobi/music/view/', $bod);
+$bod=str_replace('/site_lagu-terbaru.xhtml?', '/lagu.php?v=1&', $bod);
 }
 if($_GET['v'] == '2') {
 $bod=str_replace('/music/view/', '/up.php?url=http://bursamp3.wapka.mobi/music/view/', $bod);
