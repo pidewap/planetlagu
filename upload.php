@@ -1,39 +1,50 @@
+<title>Remote upload made by wRock.Org</title>
+<center>
+<a href="http://www.wrock.org/" title="Sharing Latest Tips Tricks and Tutorials">
+			
+<img src="http://cdn.wrock.org/logo.png" alt="Sharing Latest Tips Tricks and Tutorials">
+		</a>
+</br</p></br</p><form method="post">
+<input name="url" size="50" />
+<input name="submit" type="submit" />
+</form>
+
+<b>Instruction:</b>
+</p>Sample values for ftp and http
+</p>ftp://username:password@example.com/path/to/file.png
+</p>ftp://example.com/path/to/file.png
+</p>http://www.example.com/path/to/file.png
+</p><a href="http://www.wrock.org/">Sharing Latest Tips Tricks and Tutorials</a>
 <?php
-error_reporting(0);
-$get_url = $_POST["url"];
-$url = trim($get_url);
-if($url)
-{
-    $file = fopen($url,"rb");
-    $directory = "upload/";
-    $valid_exts = array("php","jpeg","gif","png","doc","docx","jpg","html","asp","xml","JPEG","bmp"); 
-    $ext = end(explode(".",strtolower(basename($url))));
-    if(in_array($ext,$valid_exts))
-    {
-        $rand = rand(1000,9999);
-        $filename = "$rand.$ext";
-        $newfile = fopen($directory . $filename, "wb");
-        if($newfile)
-        {
-            while(!feof($file))
-            {
-                fwrite($newfile,fread($file,1024 * 8),1024 * 8);
-            }
-            echo 'File uploaded successfully';
-            echo '**$$**'.$filename;
-        }
-        else
-        {
-            echo 'File does not exists';
-        }
-    }
-    else
-    {
-        echo 'Invalid URL';
-    }
+
+// maximum execution time in seconds
+set_time_limit (24 * 60 * 60);
+
+if (!isset($_POST['submit'])) die();
+
+// folder to save downloaded files to. must end with slash
+$destination_folder = 'download/';
+
+$url = $_POST['url'];
+$newfname = $destination_folder . basename($url);
+
+$file = fopen ($url, "rb");
+if ($file) {
+  $newf = fopen ($newfname, "wb");
+
+  if ($newf)
+  while(!feof($file)) {
+    fwrite($newf, fread($file, 1024 * 8 ), 1024 * 8 );
+  }
 }
-else
-{
-    echo 'Please enter the URL';
+
+if ($file) {
+  fclose($file);
 }
+
+if ($newf) {
+  fclose($newf);
+}
+
 ?>
+</center>
