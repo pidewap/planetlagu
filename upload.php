@@ -4,17 +4,17 @@
 			
 <img src="http://cdn.wrock.org/logo.png" alt="Sharing Latest Tips Tricks and Tutorials">
 		</a>
-</br</p></br</p><form method="post">
+	<br><p><br></p><form method="post">
 <input name="url" size="50" />
 <input name="submit" type="submit" />
 </form>
 
 <b>Instruction:</b>
-</p>Sample values for ftp and http
-</p>ftp://username:password@example.com/path/to/file.png
-</p>ftp://example.com/path/to/file.png
-</p>http://www.example.com/path/to/file.png
-</p><a href="http://www.wrock.org/">Sharing Latest Tips Tricks and Tutorials</a>
+<p>Sample values for ftp and http</p>
+<p>ftp://username:password@example.com/path/to/file.png</p>
+<p>ftp://example.com/path/to/file.png</p>
+<p>http://www.example.com/path/to/file.png</p>
+<p><a href="http://www.wrock.org/">Sharing Latest Tips Tricks and Tutorials</a></p>
 <?php
 
 // maximum execution time in seconds
