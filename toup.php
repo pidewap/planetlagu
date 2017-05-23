@@ -593,11 +593,11 @@ function get_group($arg) {
 }
 function uppercase($str){
     global $charset;
-    return mb_strtoupper($str, $charset);
+    return strtoupper($str, $charset);
 }
 function lowercase($str){
     global $charset;
-    return mb_strtolower($str, $charset);
+    return strtolower($str, $charset);
 }
 // +--------------------------------------------------
 // | Interface
