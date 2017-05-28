@@ -109,29 +109,16 @@ echo'<pre>';
 print_r($a);
 echo'</pre>';
 }else{
-if(!empty($a[tags][id3v2][title]['0'])){
  echo '<style>.input {width:80%;}</style><center><form method="post" action="/muviza.php" enctype="multipart/form-data">URL:<br>
-<input type="text" class="input" name="mp3_filepath" value="'.str_replace(' ', '%20', $url).'" /><br>
-<input type="hidden" class="input" name="mp3_filename" value="'.str_replace(' ', '_', $nname).'.mp3" />Judul Lagu:<br>
+<input type="text" class="input" name="mp3_filepath" value="'.urlencode(str_replace(' ', '%20', $url)).'" /><br>
+<input type="hidden" class="input" name="mp3_filename" value="'.urlencode(str_replace(' ', '_', $a[tags][id3v2][artist]['0'])).'_-_'.urlencode(str_replace(' ', '_', $a[tags][id3v2][title]['0'])).'.mp3" />Judul Lagu:<br>
 <input type="text" class="input" name="mp3_songname" value="'.htmlspecialchars($a[tags][id3v2][title]['0']).'" />
 <input type="hidden" class="input" name="mp3_comment" value="Download from SatriaMusic.com" /><br>Artist:<br>
-<input type="text" class="input" name="mp3_artist" value="'.htmlspecialchars(str_replace('PlanetLagu', 'SatriaMusic', $a[tags][id3v2][artist]['0'])).'" /><br>
+<input type="text" class="input" name="mp3_artist" value="'.htmlspecialchars(str_replace('PlanetLagu', 'SatriaMusic', $a[tags][id3v2][artist]['0'])).' - SatriaMusic.com" /><br>
 <input type="hidden" class="input" name="mp3_album" value="'.htmlspecialchars($a[tags][id3v2][album]['0']).'" />
 <input type="hidden" class="input" name="mp3_year" value="'.htmlspecialchars($a[tags][id3v2][year]['0']).'" />
 <input type="hidden" class="input" name="mp3_genre" value="'.htmlspecialchars($a[tags][id3v2][genre]['0']).'" /><br>
 <input type="submit" name="submit" value=" Download Music "/></form></center>';
-}else{
- echo '<style>.input {width:80%;}</style><center><form method="post" action="/muviza.php" enctype="multipart/form-data">URL:<br>
-<input type="text" class="input" name="mp3_filepath" value="'.str_replace(' ', '%20', $url).'" /><br>
-<input type="hidden" class="input" name="mp3_filename" value="'.str_replace(' ', '_', $nname).'.mp3" />Judul Lagu:<br>
-<input type="text" class="input" name="mp3_songname" value="'.htmlspecialchars($a[tags][id3v1][title]['0']).'" />
-<input type="hidden" class="input" name="mp3_comment" value="Download from SatriaMusic.com" /><br>Artist:<br>
-<input type="text" class="input" name="mp3_artist" value="'.htmlspecialchars(str_replace('PlanetLagu', 'SatriaMusic', $a[tags][id3v1][artist]['0'])).'" /><br>
-<input type="hidden" class="input" name="mp3_album" value="'.htmlspecialchars($a[tags][id3v1][album]['0']).'" />
-<input type="hidden" class="input" name="mp3_year" value="'.htmlspecialchars($a[tags][id3v1][year]['0']).'" />
-<input type="hidden" class="input" name="mp3_genre" value="'.htmlspecialchars($a[tags][id3v1][genre]['0']).'" /><br>
-<input type="submit" name="submit" value=" Download Music "/></form></center>';
-}
 }} else {
 for($i=1;$i<=500;$i++){
 $eurl=maling($ggg[$i], 'http://planetlagu.download/links?sub=mp3download&id=', '.mp3');
