@@ -73,7 +73,37 @@ return '';
 }
 }
 
-$a=getfileinfo(''.str_replace(' ', '%20', $_GET['url']).'');
+$uar=array('Nokia2610/2.0 (07.04a) Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Link/6.3.1.20.0','Nokia5300/2.0 (05.51) Profile/MIDP-2.0 Configuration/CLDC-1.1','Nokia6030/2.0 (y3.44) Profile/MIDP-2.0 Configuration/CLDC-1.1','NokiaN70-1/5.0616.2.0.3 Series60/2.8 Profile/MIDP-2.0 Configuration/CLDC-1.1');
+$uarr=array_rand($uar);
+$uarand=$uar[$uarr];
+
+ini_set('default_charset',"UTF-8");
+ini_set('user_agent',$uarand."\r\naccept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1\r\naccept_charset: $_SERVER[HTTP_ACCEPT_CHARSET]\r\naccept_language: bahasa");
+
+
+$f=file('http://www.planetlagu.site/'.$_GET['id'].'/');
+$gg=@implode($f);
+$pagelink=maling($gg, '<ol class="uldownload">', '</ol>');
+$linkdir=maling($gg, 'http://planetlagu.download/links?sub=mp3download&id=', '.mp3');
+$lname=maling($gg, 'Download lagu <strong>', '</strong>');
+$ggg=explode('<li>', $pagelink);
+
+if(!empty($_GET['url'])){
+$url=$_GET['url'];
+}else{
+$url=''.$linkdir.'';
+}
+
+if(!empty($_GET['name'])){
+$nname=$_GET['name'];
+}else{
+$nname=''.$lname.'';
+}
+
+
+if(empty($pagelink)){
+
+$a=getfileinfo(''.str_replace(' ', '%20', $url).'');
 if(!empty($_GET['infos'])){
 echo'<pre>';
 print_r($a);
@@ -81,7 +111,7 @@ echo'</pre>';
 }else{
 if(!empty($a[tags][id3v2][title]['0'])){
  echo '<style>.input {width:80%;}</style><center><form method="post" action="/muviza.php" enctype="multipart/form-data">URL:<br>
-<input type="text" class="input" name="mp3_filepath" value="http://mp3download.planetlagu.site/save/'.str_replace(' ', '%20', $url).'.mp3" /><br>
+<input type="text" class="input" name="mp3_filepath" value="'.str_replace(' ', '%20', $url).'" /><br>
 <input type="hidden" class="input" name="mp3_filename" value="'.str_replace(' ', '_', $nname).'.mp3" />Judul Lagu:<br>
 <input type="text" class="input" name="mp3_songname" value="'.htmlspecialchars($a[tags][id3v2][title]['0']).'" />
 <input type="hidden" class="input" name="mp3_comment" value="Download from SatriaMusic.com" /><br>Artist:<br>
@@ -90,5 +120,25 @@ if(!empty($a[tags][id3v2][title]['0'])){
 <input type="hidden" class="input" name="mp3_year" value="'.htmlspecialchars($a[tags][id3v2][year]['0']).'" />
 <input type="hidden" class="input" name="mp3_genre" value="'.htmlspecialchars($a[tags][id3v2][genre]['0']).'" /><br>
 <input type="submit" name="submit" value=" Download Music "/></form></center>';
+}else{
+ echo '<style>.input {width:80%;}</style><center><form method="post" action="/muviza.php" enctype="multipart/form-data">URL:<br>
+<input type="text" class="input" name="mp3_filepath" value="'.str_replace(' ', '%20', $url).'" /><br>
+<input type="hidden" class="input" name="mp3_filename" value="'.str_replace(' ', '_', $nname).'.mp3" />Judul Lagu:<br>
+<input type="text" class="input" name="mp3_songname" value="'.htmlspecialchars($a[tags][id3v1][title]['0']).'" />
+<input type="hidden" class="input" name="mp3_comment" value="Download from SatriaMusic.com" /><br>Artist:<br>
+<input type="text" class="input" name="mp3_artist" value="'.htmlspecialchars(str_replace('PlanetLagu', 'SatriaMusic', $a[tags][id3v1][artist]['0'])).'" /><br>
+<input type="hidden" class="input" name="mp3_album" value="'.htmlspecialchars($a[tags][id3v1][album]['0']).'" />
+<input type="hidden" class="input" name="mp3_year" value="'.htmlspecialchars($a[tags][id3v1][year]['0']).'" />
+<input type="hidden" class="input" name="mp3_genre" value="'.htmlspecialchars($a[tags][id3v1][genre]['0']).'" /><br>
+<input type="submit" name="submit" value=" Download Music "/></form></center>';
+}
+}} else {
+for($i=1;$i<=500;$i++){
+$eurl=maling($ggg[$i], 'http://planetlagu.download/links?sub=mp3download&id=', '.mp3');
+$ename=maling($ggg[$i], '<strong>', ' MP3</strong>');
+if(!empty($eurl)){
+echo ''.$i.' <a href="?url='.$eurl.'&name='.$ename.'">'.$eurl.'</a><br/>';
+}
+}
 }
 ?>
