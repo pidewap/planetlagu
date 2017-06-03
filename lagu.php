@@ -38,7 +38,8 @@ if(!empty($_GET['url'])){
   $linkmega=maling($gg, 'mega/logo.png', '<!--endhidelink-->');
 }
 if(!empty($_GET['url'])){
-echo strip_tags($linkmega, '<a><br>');
+  $linkmegax=maling($linkmega, 'http://adf.ly/15745813/https://k2nblog.com/redirect.html?u=', '"');
+echo '<textarea>'.base64_decode($linkmegax).'</textarea>';
 }else{
 echo strip_tags($bod, '<a><br>');
 }
