@@ -38,7 +38,7 @@ if(!empty($_GET['url'])){
   $linkmega=maling($gg, 'mega/logo.png', '<!--endhidelink-->');
 }
 if(!empty($_GET['url'])){
-  echo $linkmega;
+echo strip_tags($linkmega, '<a><br>');
 }else{
 echo strip_tags($bod, '<a><br>');
 }
