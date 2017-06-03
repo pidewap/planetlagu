@@ -41,6 +41,6 @@ if(!empty($_GET['url'])){
   $linkmegax=maling($linkmega, 'http://adf.ly/15745813/https://k2nblog.com/redirect.html?u=', '"');
 echo '<textarea>'.base64_decode($linkmegax).'</textarea>';
 }else{
-echo strip_tags($bod, '<a><br>');
+echo strip_tags($bod, '<a><div><br>');
 }
 ?>
