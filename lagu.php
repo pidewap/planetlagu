@@ -28,8 +28,7 @@ $urr='https://k2nblog.com/category/single-album/k-pop/';
 
 $f=file(''.$urr.'');
 $gg=@implode($f);
-$bod=maling($gg, '<div class="td-category-description">', '<div class="td-pb-span4 td-main-sidebar">
-');
+$bod=maling($gg, '<body', '</body>');
 
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
