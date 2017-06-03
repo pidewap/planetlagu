@@ -33,5 +33,12 @@ $bod=maling($gg, '<body>', '</body>');
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 
+if(!empty($_GET['url'])){
+  $linkmega=maling($gg, 'mega/logo.png', '<!--endhidelink-->');
+}
+if(!empty($_GET['url'])){
+  echo $linkmega;
+}else{
 echo strip_tags($bod, '<div><a><hr><center><br>');
+}
 ?>
