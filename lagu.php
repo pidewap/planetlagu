@@ -16,14 +16,15 @@ $uarand=$uar[$uarr];
 
 ini_set('default_charset',"UTF-8");
 ini_set('user_agent',$uarand."\r\naccept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1\r\naccept_charset: $_SERVER[HTTP_ACCEPT_CHARSET]\r\naccept_language: bahasa");
-if(!empty($_GET['page'])){
-  $urr='https://k2nblog.com/category/single-album/k-pop/page/'.$_GET['page'].'/';
-}
+
 if(!empty($_GET['url'])){
   $urr=$_GET['url'];
 }
-if(empty($_GET['url']) && empty($_GET['page'])) {
-$urr='https://k2nblog.com/category/single-album/k-pop/';
+if(!empty($_GET['page'])){
+$pages='page/'.$_GET['page'].'/';
+}
+if(empty($_GET['url'])) {
+$urr='https://k2nblog.com/category/single-album/k-pop/'.$pages.'';
 }
 
 $f=file(''.$urr.'');
