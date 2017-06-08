@@ -17,7 +17,7 @@ $uarand=$uar[$uarr];
 ini_set('default_charset',"UTF-8");
 ini_set('user_agent',$uarand."\r\naccept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1\r\naccept_charset: $_SERVER[HTTP_ACCEPT_CHARSET]\r\naccept_language: bahasa");
 if(!empty($_GET['page'])){
-  $urr='https://k2nblog.com/category/single-album/k-pop/'.$_GET['page'].'';
+  $urr='https://k2nblog.com/category/single-album/k-pop/page/'.$_GET['page'].'/';
 }
 if(!empty($_GET['url'])){
   $urr=$_GET['url'];
@@ -28,7 +28,7 @@ $urr='https://k2nblog.com/category/single-album/k-pop/';
 
 $f=file(''.$urr.'');
 $gg=@implode($f);
-$bod=maling($gg, '<body', '</body>');
+$bod=maling($gg, '<div class="td-category-grid td-container-wrap">', '<div class="td-pb-span4 td-main-sidebar">');
 
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
@@ -40,6 +40,7 @@ if(!empty($_GET['url'])){
   $linkmegax=maling($linkmega, 'http://adf.ly/15745813/https://k2nblog.com/redirect.html?u=', '"');
 echo '<textarea>'.base64_decode($linkmegax).'</textarea>';
 }else{
-echo strip_tags($bod, '<a><div><br>');
+echo strip_tags($bod, '<a><div><p><br>');
+  echo '<center><a href="?page'.($_GET['page']-1).'">BACK</a> | <a href="?page'.($_GET['page']+1).'">NEXT</a></center>';
 }
 ?>
