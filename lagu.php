@@ -32,7 +32,7 @@ if(!empty($_GET['url'])){
 
 $f=file(''.$urr.'');
 $gg=@implode($f);
-$bod=maling($gg, '<div class="td-category-grid td-container-wrap">', '<div class="td-pb-span4 td-main-sidebar">');
+$bod=maling($gg, '<body', '</body>');
 
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
@@ -45,6 +45,6 @@ if(!empty($_GET['url'])){
 echo '<textarea>'.base64_decode($linkmegax).'</textarea>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
-  echo '<center><a href="?page'.($_GET['page']-1).'">BACK</a> | <a href="?page'.($_GET['page']+1).'">NEXT</a><b>'.$urr.'</center>';
+  echo '<center><a href="?page='.($_GET['page']-1).'">BACK</a> | <a href="?page='.($_GET['page']+1).'">NEXT</a><b>'.$urr.'</center>';
 }
 ?>
