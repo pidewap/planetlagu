@@ -42,7 +42,8 @@ if(!empty($_GET['url'])){
 }
 if(!empty($_GET['url'])){
   $linkmegax=maling($linkmega, 'http://adf.ly/15745813/https://k2nblog.com/redirect.html?u=', '"');
-echo '<textarea>'.base64_decode($linkmegax).'</textarea>';
+  $artist=maling($gg, '<meta itemprop="description" content="', ' - ');
+echo '<textarea>'.base64_decode($linkmegax).'</textarea><p>'.$artist.'</p>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
   echo '<center><a href="?page='.($_GET['page']-1).'">BACK</a> | <a href="?page='.($_GET['page']+1).'">NEXT</a><b>'.$urr.'</center>';
