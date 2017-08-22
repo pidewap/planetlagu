@@ -40,14 +40,15 @@ $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $
 if(!empty($_GET['url'])){
   $linkmega=maling($gg, 'mega/logo.png', '<!--endhidelink-->');
   $linkshared=maling($gg, '4shared.gif', '<!--endhidelink-->');
+  $hdesc=maling($gg, '<p>Track List:', '</p>');
 }
 if(!empty($_GET['url'])){
-  $linkmegax=maling($linkmega, 'http://adf.ly/15745813/https://k2nblog.com/redirect.html?u=', '"');
-  $linksharedx=maling($linkshared, 'http://adf.ly/15745813/https://k2nblog.com/redirect.html?u=', '"');
+  $linkmegax=maling($linkmega, '?u=', '"');
+  $linksharedx=maling($linkshared, '?u=', '"');
   $artist=maling($gg, '<meta itemprop="description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
 echo '<textarea>'.base64_decode($linkmegax).'</textarea><p></p>
-<textarea>'.base64_decode($linksharedx).'</textarea><p></p><textarea>'.$imgs.'</textarea><p></p><p>'.$artist.'</p>';
+<textarea>'.base64_decode($linksharedx).'</textarea><p></p><textarea>'.$imgs.'</textarea><p></p><p>'.$artist.'</p><br/><p>'.$hdesc.'';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
   echo '<center><a href="?page='.($_GET['page']-1).'">BACK</a> | <a href="?page='.($_GET['page']+1).'">NEXT</a><b>'.$urr.'</center>';
