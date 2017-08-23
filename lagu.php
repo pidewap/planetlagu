@@ -47,8 +47,8 @@ if(!empty($_GET['url'])){
   $hdesc=maling($gg, '<p>Track List:', '</p>');
 }
 if(!empty($_GET['url'])){
-  $linkmegax=maling($linkmega, '?u=', '"');
-  $linksharedx=maling($linkshared, '?u=', '"');
+  $linkmegax=maling($linkmega, 'http://adf.ly/15745813/', '"');
+  $linksharedx=maling($linkshared, 'http://adf.ly/15745813/', '"');
   $artist=maling($gg, '<meta itemprop="description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
 echo '<textarea>'.$linkmegax.'</textarea><p></p>
