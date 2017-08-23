@@ -42,7 +42,8 @@ $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $
 if(!empty($_GET['url'])){
   $linkxmega=maling($gg, 'mega/logo.png', '4shared.gif');
   $linkmega=maling($linkxmega, '<!--hidelink-->', '<!--endhidelink-->');
-  $linkshared=maling($gg, '4shared.gif', '</p>');
+  $linkxshared=maling($gg, '4shared.gif', '</p>');
+  $linkshared=maling($linkxshared, '<!--hidelink-->', '<!--endhidelink-->');
   $hdesc=maling($gg, '<p>Track List:', '</p>');
 }
 if(!empty($_GET['url'])){
@@ -50,8 +51,8 @@ if(!empty($_GET['url'])){
   $linksharedx=maling($linkshared, '?u=', '"');
   $artist=maling($gg, '<meta itemprop="description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
-echo '<textarea>'.base64_decode($linkmegax).'</textarea><p></p>
-<textarea>'.base64_decode($linksharedx).'</textarea><p></p><textarea>'.$imgs.'</textarea><p></p><p>'.$artist.'</p><br/><p>'.$hdesc.'';
+echo '<textarea>'.$linkmegax.'</textarea><p></p>
+<textarea>'.$linksharedx.'</textarea><p></p><textarea>'.$imgs.'</textarea><p></p><p><a href="'.str_replace('4shared.com', '4shared.one',$linksharedx).'">Download 4shared</a></p><p>'.$artist.'</p><br/><p>'.$hdesc.'';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
   echo '<center><a href="?page='.($_GET['page']-1).'">BACK</a> | <a href="?page='.($_GET['page']+1).'">NEXT</a><b>'.$urr.'</center>';
