@@ -49,10 +49,10 @@ if(!empty($_GET['url'])){
 if(!empty($_GET['url'])){
   $linkmegax=maling($linkmega, 'http://adf.ly/15745813/', '"');
   $linksharedx=maling($linkshared, 'http://adf.ly/15745813/', '"');
-  $artist=maling($gg, '<meta itemprop="description" content="', ' - ');
+  $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
 echo '<center><textarea>'.$linkmegax.'</textarea><p></p>
-<textarea>'.$linksharedx.'</textarea><p></p><textarea>'.$imgs.'</textarea><p></p><p><a href="'.str_replace('4shared.com', '4shared.one',$linksharedx).'">Download 4shared</a></p><p>'.$artist.'</p><br/><p>'.$hdesc.'</center>';
+<textarea>'.$linksharedx.'</textarea><p></p><textarea>'.$imgs.'</textarea><p></p><p><a href="'.str_replace('https://', 'http://', str_replace('4shared.com', '4shared.one',$linksharedx)).'">Download 4shared</a></p><p>'.$artist.'</p><br/><p>'.$hdesc.'</center>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
   echo '<center><a href="?page='.($_GET['page']-1).'">BACK</a> | <a href="?page='.($_GET['page']+1).'">NEXT</a><b>'.$urr.'</center>';
