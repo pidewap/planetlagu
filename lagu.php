@@ -40,9 +40,9 @@ $bod=str_replace('MP3:', '<!--hidelink-->MP3:', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 
 if(!empty($_GET['url'])){
-  $linkxmega=maling($gg, 'mega/logo.png', '4shared.gif');
+  $linkxmega=maling($gg, '/mega/logo.png', '4shared.gif');
   $linkmega=maling($linkxmega, '<!--hidelink-->', '<!--endhidelink-->');
-  $linkxshared=maling($gg, '4shared.gif', '</p>');
+  $linkxshared=maling($gg, '/4shared.gif', '</div>');
   $linkshared=maling($linkxshared, '<!--hidelink-->', '<!--endhidelink-->');
   $hdesc=maling($gg, '<p>Track List:', '</p>');
 }
