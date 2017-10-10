@@ -40,18 +40,18 @@ $bod=str_replace('MP3:', '<!--hidelink--> MP3', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 
 if(!empty($_GET['url'])){
-  $linkxmega=maling($gg, '/mega/logo.png', '4shared.gif');
+  $linkxmega=maling($bod, '/mega/logo.png', '4shared.gif');
   $linkmega=maling($linkxmega, '<!--hidelink-->', '<!--endhidelink-->');
-  $linkxshared=maling($gg, '/4shared.gif', '</div>');
+  $linkxshared=maling($bod, '/4shared.gif', '</div>');
   $linkshared=maling($linkxshared, '<!--hidelink-->', '<!--endhidelink-->');
-  $hdesc=maling($gg, '<p>Track List:', '</p>');
+  $hdesc=maling($bod, '<p>Track List:', '</p>');
 }
 if(!empty($_GET['url'])){
   $linkmegax=maling($linkmega, 'adf.ly/15745813/', '"');
   $linksharedx=maling($linkshared, 'adf.ly/15745813/', '"');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
-echo '<center><textarea>'.$linkmegax.'</textarea><p></p>
+echo ''.$linkxmega.'<br/>'.$linkxshared.'<center><textarea>'.$linkmegax.'</textarea><p></p>
 <textarea>'.$linksharedx.'</textarea><p></p><textarea>'.$imgs.'</textarea><p></p><p><a href="'.str_replace('https://', 'http://', str_replace('4shared.com', '4shared.one',$linksharedx)).'">Download 4shared</a></p><p>'.$artist.'</p><br/><p>'.$hdesc.'</center>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
