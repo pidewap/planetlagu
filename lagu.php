@@ -50,7 +50,7 @@ if(!empty($_GET['url'])){
   $linksharedx=maling($linkshared, 'adf.ly/15745813/', '"');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
-echo ''.$linkxmega.'<br/>'.$linkxshared.'<center><textarea>'.$linkmegax.'</textarea><p></p>
+echo '<center><textarea>'.$linkmegax.'</textarea><p></p>
 <textarea>'.$linksharedx.'</textarea><p></p><textarea>'.$imgs.'</textarea><p></p><p><a href="'.str_replace('https://', 'http://', str_replace('4shared.com', '4shared.one',$linksharedx)).'">Download 4shared</a></p><p>'.$artist.'</p><br/><p>'.$hdesc.'</center>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
