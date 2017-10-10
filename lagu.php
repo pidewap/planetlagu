@@ -26,7 +26,7 @@ $pages='page/'.$_GET['page'].'/';
 if(!empty($_GET['url'])){
   $urr=$_GET['url'];
 }else{
-  $urr='https://k2nblog.com/category/single-album/k-pop/'.$pages.'';
+  $urr='https://k2nblog.com/category/genre/'.$pages.'';
 }
 
 
@@ -36,7 +36,6 @@ $bod=maling($gg, '<body', '</body>');
 
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('iTunes:', '<!--endhidelink-->itunes', $bod);
-$bod=str_replace('MP3:', '<!--hidelink--> MP3', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 
 if(!empty($_GET['url'])){
