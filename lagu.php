@@ -35,8 +35,8 @@ $gg=@implode($f);
 $bod=maling($gg, '<body', '</body>');
 
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
-$bod=str_replace('<!--hidelink-->iTunes:', 'itunes:', $bod);
-$bod=str_replace('MP3:', '<!--hidelink-->MP3:', $bod);
+$bod=str_replace('<!--hidelink-->iTunes:', 'itunes', $bod);
+$bod=str_replace('MP3:', '<!--hidelink--> MP3', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 
 if(!empty($_GET['url'])){
@@ -47,8 +47,8 @@ if(!empty($_GET['url'])){
   $hdesc=maling($gg, '<p>Track List:', '</p>');
 }
 if(!empty($_GET['url'])){
-  $linkmegax=maling($linkmega, 'http://adf.ly/15745813/', '"');
-  $linksharedx=maling($linkshared, 'http://adf.ly/15745813/', '"');
+  $linkmegax=maling($linkmega, 'adf.ly/15745813/', '"');
+  $linksharedx=maling($linkshared, 'adf.ly/15745813/', '"');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
 echo '<center><textarea>'.$linkmegax.'</textarea><p></p>
