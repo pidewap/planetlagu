@@ -20,7 +20,5 @@ ini_set('user_agent',$uarand."\r\naccept: text/html, application/xml;q=0.9, appl
 $f=file('https://userscloud.com/go/'.$_GET['id'].'');
 $gg=@implode($f);
 $bod=maling($gg, '<table', '</table>');
-
-$ex=explode('href="//userscloud.com/',$bod);
-var_dump($ex);
+echo htmlspecialchars($bod);
 ?>
