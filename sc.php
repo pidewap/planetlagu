@@ -21,6 +21,6 @@ $f=file('https://userscloud.com/go/'.$_GET['id'].'');
 $gg=@implode($f);
 $bod=maling($gg, '<table', '</table>');
 
-$ex=explode("href="//userscloud.com/",$bod);
-var_dump ($ex);
+$ex=explode('href="//userscloud.com/',$bod);
+var_dump($ex);
 ?>
