@@ -21,5 +21,6 @@ $f=file('https://userscloud.com/go/'.$GET_['id'].'');
 $gg=@implode($f);
 $bod=maling($gg, '<!-- Table -->', '<!-- // Table END -->');
 
+echo htmlspecialchars($bod);
 echo strip_tags($bod, '<a>');
 ?>
