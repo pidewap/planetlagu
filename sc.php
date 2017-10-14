@@ -19,8 +19,8 @@ ini_set('user_agent',$uarand."\r\naccept: text/html, application/xml;q=0.9, appl
 
 $f=file('https://userscloud.com/go/'.$_GET['id'].'');
 $gg=@implode($f);
-$bod=maling($gg, '<!-- Table -->', '<!-- // Table END -->');
+$bod=maling($gg, '<table', '</table>');
 
-
-echo strip_tags($bod, '<a>');
+$ex=explode("<td class="strong"",$kalimat);
+var_dump ($ex);
 ?>
