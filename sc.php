@@ -20,6 +20,7 @@ return $r[0];
 
 $kodeHTML =  bacaHTML('https://userscloud.com/go/n4du2itmzorv');
 $pecah = explode('<td class="strong" width="460">', $kodeHTML);
+var_dump($pecah);
 echo '<textarea>';
 
 if(!empty($kodeHTML)){
