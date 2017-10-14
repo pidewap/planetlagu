@@ -23,6 +23,7 @@ $pecah = explode('<td class="strong" width="460">', $kodeHTML);
 echo '<link href="http://www.autogeneratelink.us/css/bootstrap.min.css" rel="stylesheet">
 <form action="http://www.autogeneratelink.us/" method="get" class="form-inline">
 <input style="height:28px;font-size:12px" type="text" class="form-control" name="link" placeholder="';
+
 if(!empty($kodeHTML)){
 for($i=1; $i<=100; $i++){
   $url = copet($pecah[$i],'href="//userscloud.com/','"');
@@ -30,10 +31,10 @@ for($i=1; $i<=100; $i++){
   ';
 }
 }
-echo '">
+
+?>">
 <input type="submit" name="do" value="Generate" class="btn btn-primary btn-sm" onclick="document.getElementById('img_load').style.display='inline'"/>
 <img src="http://www.autogeneratelink.us/loading.gif" id="img_load" style="display:none;" />
 <br/><p style="font-size:12px">Supported by autogeneratelink.us</p>
-</form>';
-?>
+</form>
 
