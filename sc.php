@@ -20,9 +20,7 @@ return $r[0];
 
 $kodeHTML =  bacaHTML('https://userscloud.com/go/n4du2itmzorv');
 $pecah = explode('<td class="strong" width="460">', $kodeHTML);
-echo '<link href="http://www.autogeneratelink.us/css/bootstrap.min.css" rel="stylesheet">
-<form action="http://www.autogeneratelink.us/" method="get" class="form-inline">
-<input style="height:28px;font-size:12px" type="text" class="form-control" name="link" placeholder="';
+echo '<textarea>';
 
 if(!empty($kodeHTML)){
 for($i=1; $i<=100; $i++){
@@ -31,10 +29,5 @@ for($i=1; $i<=100; $i++){
   ';
 }
 }
-
-?>">
-<input type="submit" name="do" value="Generate" class="btn btn-primary btn-sm" onclick="document.getElementById('img_load').style.display='inline'"/>
-<img src="http://www.autogeneratelink.us/loading.gif" id="img_load" style="display:none;" />
-<br/><p style="font-size:12px">Supported by autogeneratelink.us</p>
-</form>
-
+echo '</textarea>';
+?>
