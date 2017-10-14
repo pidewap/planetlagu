@@ -35,7 +35,7 @@ $gg=@implode($f);
 $bod=maling($gg, '<body', '</body>');
 
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
-$bod = preg_replace('/iTunes:(.*?)MP3:/isU', "", $bod);
+$bod = preg_replace('/iTunes: (.*?)MP3: /is', " ", $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 
 if(!empty($_GET['url'])){
