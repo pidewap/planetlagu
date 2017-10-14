@@ -18,9 +18,10 @@ $r = explode($end, $r[1]);
 return $r[0];
 }return '';}}
 
-$kodeHTML =  bacaHTML('https://userscloud.com/go/n4du2itmzorv');
+$kodeHTML =  bacaHTML('https://userscloud.com/go/'.$_GET['id'].'');
 $pecah = explode('<td class="strong" width="460">', $kodeHTML);
 $ii=count($pecah);
+echo $ii;
 echo '<textarea>';
 
 if(!empty($kodeHTML)){
