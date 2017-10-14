@@ -10,8 +10,8 @@ function bacaHTML($url){
   curl_close($data);
   return $hasil;
 }
-$kodeHTML =  bacaHTML('http://www.detik.com/');
-$pecah = explode('<ul id="beritautama">', $kodeHTML);
-$pecahLagi = explode('</ul>', $pecah[1]);
+$kodeHTML =  bacaHTML('https://userscloud.com/go/n4du2itmzorv');
+$pecah = explode('<td class="strong" width="460">', $kodeHTML);
+$pecahLagi = explode('</td>', $pecah[1]);
 echo "<ul>".$pecahLagi[0]."</ul>";
 ?>
