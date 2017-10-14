@@ -20,11 +20,11 @@ return $r[0];
 
 $kodeHTML =  bacaHTML('https://userscloud.com/go/n4du2itmzorv');
 $pecah = explode('<td class="strong" width="460">', $kodeHTML);
-var_dump($pecah);
+$ii=count($pecah);
 echo '<textarea>';
 
 if(!empty($kodeHTML)){
-for($i=1; $i<=100; $i++){
+for($i=1; $i<=$ii; $i++){
   $url = copet($pecah[$i],'href="//userscloud.com/','"');
   echo 'http://userscloud.com/'.$url.'
   ';
