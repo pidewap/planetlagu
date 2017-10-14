@@ -11,9 +11,6 @@ function bacaHTML($url){
   return $hasil;
 }
 $kodeHTML =  bacaHTML('https://userscloud.com/go/n4du2itmzorv');
-$pecah = explode('<td class="strong" width="460">', $kodeHTML);
-$pecahLagi = explode('</td>', $pecah[1]);
-for ($i= 1; $i <= 100; $i++)
-  echo "<ul>".$pecahLagi[0]."</ul>";
-}
+$pecah = explode('<td class="strong" width="460"><a href="', $kodeHTML);
+$pecahLagi = explode('">', $pecah[1]);
 ?>
