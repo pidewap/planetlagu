@@ -32,7 +32,7 @@ if(!empty($_GET['url'])){
 
 $f=file(''.$urr.'');
 $gg=@implode($f);
-$bod=maling($gg, '<body', '</body>');
+$bod=maling($gg, '<div class="td-category-header td-container-wrap">', '<div class="td-pb-span4 td-main-sidebar">');
 
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod = preg_replace('/iTunes: (.*?)MP3: /is', " ", $bod);
