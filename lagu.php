@@ -56,9 +56,13 @@ if(!empty($_GET['url'])){
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
   $linkdo=strip_tags($linkdownload, '<b><a><br>');
+   $sc=maling($gg, 'individual tracks:<br />', '<img src="https://k2nblog.com/wp-content/images/hostimg/mediafire.png"/>');
+   $sc=strip_tags($sc, '<a>');
+   $sc=str_replace('http://linkshrink.net/zfb5=https://userscloud.com/go/', '/sc.php?id=', $sc);
+   $sc=str_replace('http://q.gs/15745813/https://userscloud.com/go/', '/sc.php?id=', $sc);
 echo '
 <body><center><textarea>'.$imgs.'</textarea>
-'.$linkdo.'<br />'.$hdesc.'
+'.$linkdo.'<br />'.$sc.'<br />'.$hdesc.'
 </center>
 </body>
 </html>';
