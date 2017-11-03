@@ -4,7 +4,7 @@
    .js-copytextarea{
  border:1px solid blue;border-left:5px solid blue;background:#eee;
  display:block;margin:5px 0 10px 0;word-break: break-all;
- text-align:left;width:50%;height:80px;overflow:auto;}
+ text-align:left;width:50%;height:50px;overflow:auto;}
   </style>
 <?php
 error_reporting(0);
@@ -55,12 +55,14 @@ if(!empty($_GET['url'])){
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
   $linkdo=strip_tags($linkdownload, '<b><a>');
-  $linkdo=str_replace('<a href="', '<p><textarea class="js-copytextarea">', $linkdo);
-  $linkdo=str_replace('" ', '</textarea></p>', $linkdo);
-  $linkdoo=strip_tags($linkdo, '<b><textarea><p>');
+  $linkdo=str_replace('<a href="', '</a><textarea class="js-copytextarea">', $linkdo);
+  $linkdo=str_replace('" ', '</textarea><br>', $linkdo);
+   $linkdo=str_replace('target', '<a target', $linkdo);
+   $linkdo=str_replace('" ', '</textarea><br>', $linkdo);
+  $linkdoo=strip_tags($linkdo, '<b><textarea><br>');
 echo '
 <body><center>
-'.$linkdoo.'
+'.$linkdoo.'<p></p>'.$hdesc.'
 </center>
 </body>
 </html>';
