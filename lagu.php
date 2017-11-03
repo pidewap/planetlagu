@@ -40,11 +40,11 @@ $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?p
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 
 if(!empty($_GET['url'])){
-  $linkdownload=maling($bod, '<!--hidelink-->Listen', '<!--endhidelink--></p>');
+  $linkdownload=maling($bod, 'tracks:<br />', '<!--endhidelink--></p>');
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
-  $linkdo=strip_tags($linkdownload, '<a>');
+  $linkdo=strip_tags($linkdownload, '<a><br>');
 echo '<center>'.$linkdo.'</center>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
