@@ -72,10 +72,9 @@ if(!empty($_GET['url'])){
   $linkdo=str_replace('" ', '</textarea></p>', $linkdownload);
   $linkdo=str_replace('target', '<center>', $linkdownload);
   $linkdo=str_replace('|', '</center>', $linkdownload);
-  $linkdoo=strip_tags($linkdo, '<textarea><button><b><br><p>');
 echo '
 <body>
-<center>'.$linkdoo.'</center>
+<center>'.$linkdo.'</center>
 </body>
 </html>';
 }else{
