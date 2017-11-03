@@ -1,18 +1,3 @@
-<script type='text/javascript'>
-var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
-copyTextareaBtn.addEventListener('click', function(event) {
-  var copyTextarea = document.querySelector('.js-copytextarea');
-  copyTextarea.select();
-  try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Copying text command was ' + msg);
-  } catch (err) {
-    console.log('Oops, unable to copy');
-  }
-});
-</script>
-
 <?php
 error_reporting(0);
 function maling($content,$start,$end){
@@ -60,13 +45,28 @@ if(!empty($_GET['url'])){
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
   $linkdo=strip_tags($linkdownload, '<b><a><br>');
-  $linkdo=str_replace('http://linkshrink.net/zfb5=', '', $linkdo);
-  $linkdo=str_replace('http://q.gs/15745813/', '', $linkdo);
-  $linkdo=str_replace('<a href="', '<button class="js-textareacopybtn">Copy All</button><br /><textarea class="js-copytextarea">', $linkdo);
-  $linkdo=str_replace('" ', '</textarea>', $linkdo);
-  $linkdo=str_replace('" ', '</textarea>', $linkdo);
-  $linkdoo=strip_tags($linkdo, '<textarea><button><b><br>');
+  $linkdo=str_replace('http://linkshrink.net/zfb5=', '', $linkdownload);
+  $linkdo=str_replace('http://q.gs/15745813/', '', $linkdownload);
+  $linkdo=str_replace('<a href="', '<p><button class="js-textareacopybtn">Copy All</button><textarea class="js-copytextarea">', $linkdownload);
+  $linkdo=str_replace('" ', '</textarea></p>', $linkdownload);
+  $linkdo=str_replace('target', '<center>', $linkdownload);
+  $linkdo=str_replace('|', '</center>', $linkdownload);
+  $linkdoo=strip_tags($linkdo, '<textarea><button><b><br><p>');
 echo '<html>
+<script type='text/javascript'>
+var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copyTextarea = document.querySelector('.js-copytextarea');
+  copyTextarea.select();
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+});
+</script>
 <body>
 <center>'.$linkdoo.'</center>
 </body>
