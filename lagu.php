@@ -13,7 +13,12 @@ copyTextareaBtn.addEventListener('click', function(event) {
   }
 });
 </script>
-
+<style>
+   .js-copytextarea{
+ border:1px solid blue;border-left:5px solid blue;background:#eee;
+ display:block;margin:5px 0 10px 0;word-break: break-all;
+ text-align:left;width:95%;height:150px;overflow:auto;}
+  </style>
 <?php
 error_reporting(0);
 function maling($content,$start,$end){
