@@ -46,18 +46,19 @@ $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu
 $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 if(!empty($_GET['url'])){
-  $linkdownload=maling($bod, '/images/mega/logo.png', '<footer>');
+  $linkdownload=maling($bod, '/images/mega/logo.png"/>', '<footer>');
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
   $linkdownload=str_replace('http://linkshrink.net/zfb5=', '', $linkdownload);
+  $linkdownload=str_replace('https://www.4shared.com', 'http://www.4shared.one', $linkdownload);
   $linkdownload=str_replace('http://q.gs/15745813/', '', $linkdownload);
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
   $linkdo=strip_tags($linkdownload, '<b><a><br>');
 echo '
-<body><center><textarea>'.$imgs.'</textarea><p></p>
-'.$linkdo.'<p></p>'.$hdesc.'
+<body><center><textarea>'.$imgs.'</textarea>
+'.$linkdo.'<br />'.$hdesc.'
 </center>
 </body>
 </html>';
