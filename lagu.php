@@ -56,10 +56,9 @@ if(!empty($_GET['url'])){
   $imgs=maling($gg, '<p><center><img src="', '"');
   $linkdo=strip_tags($linkdownload, '<b><a>');
   $linkdo=str_replace('<a href="', '</a><textarea class="js-copytextarea">', $linkdo);
-  $linkdo=str_replace('" ', '</textarea><br>', $linkdo);
+  $linkdo=str_replace('" ', '</textarea><p></p>', $linkdo);
    $linkdo=str_replace('target', '<a target', $linkdo);
-   $linkdo=str_replace('" ', '</textarea><br>', $linkdo);
-  $linkdoo=strip_tags($linkdo, '<b><textarea><br>');
+  $linkdoo=strip_tags($linkdo, '<b><textarea><p>');
 echo '
 <body><center>
 '.$linkdoo.'<p></p>'.$hdesc.'
