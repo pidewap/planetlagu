@@ -38,13 +38,35 @@ $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu
 $bod = preg_replace('/iTunes: (.*?)MP3: /is', " ", $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
+echo'<script type='text/javascript'>
+var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copyTextarea = document.querySelector('.js-copytextarea');
+  copyTextarea.select();
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+});
+</script>
 
+';
 if(!empty($_GET['url'])){
-  $linkdownload=maling($bod, 'tracks:<br />', '<!--endhidelink--></p>');
+  $linkdownload=maling($bod, 'tracks:<br />', '<footer>');
+  $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
+  $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
-  $linkdo=strip_tags($linkdownload, '<a><br>');
+  $linkdo=strip_tags($linkdownload, '<b><a><br>');
+  $linkdo=str_replace('http://linkshrink.net/zfb5=', '', $linkdownload);
+  $linkdo=str_replace('" target="_blank">LINKSHRINK</a>', '</textarea>', $linkdownload);
+  $linkdo=str_replace('" target="_blank">ADF.LY</a>', '</textarea>', $linkdownload);
+  $linkdo=str_replace('|', '<br />', $linkdownload);
+  $linkdo=str_replace('<a href="', '<button class="js-textareacopybtn">Copy All</button><br /><textarea class="js-copytextarea">', $linkdownload);
 echo '<center>'.$linkdo.'</center>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
