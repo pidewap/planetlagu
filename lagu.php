@@ -33,29 +33,20 @@ if(!empty($_GET['url'])){
 $f=file(''.$urr.'');
 $gg=@implode($f);
 $bod=maling($gg, '<body', '</body>');
-
+$bod=str_replace('/"', '"', $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod = preg_replace('/iTunes: (.*?)MP3: /is', " ", $bod);
+$bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 
 if(!empty($_GET['url'])){
-  $linkxmega=maling($bod, '/mega/logo.png', '4shared.gif');
-  $linkmega=maling($linkxmega, '<!--hidelink-->', '<!--endhidelink-->');
-  $linkxsc=maling($bod, '<!--hidelink-->Listen', '<!--endhidelink-->');
-  $linkxshared=maling($bod, '/4shared.gif', '</div>');
-  $linkshared=maling($linkxshared, '<!--hidelink-->', '<!--endhidelink-->');
+  $linkdownload=maling($bod, '<!--hidelink-->Listen', '<!--endhidelink--></p>');
   $hdesc=maling($bod, '<p>Track List:', '</p>');
-}
-if(!empty($_GET['url'])){
-  $linkmegax=maling($linkmega, 'adf.ly/15745813/', '"');
-  $linkscx=maling($linkxsc, 'adf.ly/15745813/https://userscloud.com/go/', '"');
-  $linksharedx=maling($linkshared, 'adf.ly/15745813/', '"');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
-echo '<center><textarea>'.$linkmegax.'</textarea><p></p>
-<textarea>'.$linksharedx.'</textarea><p></p><textarea>'.$imgs.'</textarea><p></p><p><a href="'.str_replace('https://', 'http://', str_replace('4shared.com', '4shared.one',$linksharedx)).'">Download 4shared</a></p><p><a href="/sc.php?id='.$linkscx.'">Download Soundcloud</a></p><p>'.$artist.'</p><br/><p>'.$hdesc.'</center>';
+  $linkdo=strip_tags($linkdownload, '<a>');
+echo '<center>'.$linkdo.'</center>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
-  echo '<center><a href="?page='.($_GET['page']-1).'">BACK</a> | <a href="?page='.($_GET['page']+1).'">NEXT</a><b>'.$urr.'</center>';
 }
 ?>
