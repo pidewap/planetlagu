@@ -1,23 +1,10 @@
 <html>
-  <script type='text/javascript'>
-var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
-copyTextareaBtn.addEventListener('click', function(event) {
-  var copyTextarea = document.querySelector('.js-copytextarea');
-  copyTextarea.select();
-  try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Copying text command was ' + msg);
-  } catch (err) {
-    console.log('Oops, unable to copy');
-  }
-});
-</script>
+
 <style>
    .js-copytextarea{
  border:1px solid blue;border-left:5px solid blue;background:#eee;
  display:block;margin:5px 0 10px 0;word-break: break-all;
- text-align:left;width:95%;height:150px;overflow:auto;}
+ text-align:left;width:50%;height:150px;overflow:auto;}
   </style>
 <?php
 error_reporting(0);
@@ -67,15 +54,16 @@ if(!empty($_GET['url'])){
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
-  $linkdo=strip_tags($linkdownload, '<b><a><br>');
-  $linkdo=str_replace('<a href="', '<p><button class="js-textareacopybtn">Copy All</button><textarea class="js-copytextarea">', $linkdo);
+  $linkdo=strip_tags($linkdownload, '<b><a>');
+  $linkdo=str_replace('<a href="', '<p><textarea class="js-copytextarea">', $linkdo);
   $linkdo=str_replace('" ', '</textarea></p>', $linkdo);
   $linkdo=str_replace('target', '<center>', $linkdo);
   $linkdo=str_replace('</a>', '</center>', $linkdo);
-  $linkdoo=strip_tags($linkdo, '<b><textarea><button><p><br>');
+  $linkdoo=strip_tags($linkdo, '<b><textarea><p>');
 echo '
-<body>
+<body><center>
 '.$linkdoo.'
+</center>
 </body>
 </html>';
 }else{
