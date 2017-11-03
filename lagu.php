@@ -54,14 +54,10 @@ if(!empty($_GET['url'])){
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
-  $linkdo=strip_tags($linkdownload, '<b><a>');
-  $linkdo=str_replace('<a href="', '</a><textarea class="js-copytextarea">', $linkdo);
-  $linkdo=str_replace('" ', '</textarea><p></p>', $linkdo);
-   $linkdo=str_replace('target', '<a target', $linkdo);
-  $linkdoo=strip_tags($linkdo, '<b><textarea><p>');
+  $linkdo=strip_tags($linkdownload, '<b><a><br>');
 echo '
-<body><center>
-'.$linkdoo.'<p></p>'.$hdesc.'
+<body><center><textarea>'.$imgs.'</textarea><p></p>
+'.$linkdo.'<p></p>'.$hdesc.'
 </center>
 </body>
 </html>';
