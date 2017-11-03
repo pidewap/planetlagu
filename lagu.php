@@ -65,7 +65,12 @@ if(!empty($_GET['url'])){
   $linkdo=str_replace('<a href="', '<button class="js-textareacopybtn">Copy All</button><br /><textarea class="js-copytextarea">', $linkdo);
   $linkdo=str_replace('" ', '</textarea>', $linkdo);
   $linkdo=str_replace('" ', '</textarea>', $linkdo);
-echo '<body><center>'.$linkdo.'</center></body>';
+  $linkdoo=strip_tags($linkdo, '<textarea><button><b><br>');
+echo '<html>
+<body>
+<center>'.$linkdoo.'</center>
+</body>
+</html>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
 }
