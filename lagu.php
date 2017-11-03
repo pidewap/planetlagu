@@ -63,9 +63,9 @@ if(!empty($_GET['url'])){
   $linkdo=str_replace('http://linkshrink.net/zfb5=', '', $linkdo);
   $linkdo=str_replace('http://q.gs/15745813/', '', $linkdo);
   $linkdo=str_replace('<a href="', '<button class="js-textareacopybtn">Copy All</button><br /><textarea class="js-copytextarea">', $linkdo);
-  $linkdo=str_replace('" target="_blank">LINKSHRINK</a>', '</textarea>', $linkdo);
-  $linkdo=str_replace('" target="_blank">ADF.LY</a>', '</textarea>', $linkdo);
-echo '<center>'.$linkdo.'</center>';
+  $linkdo=str_replace('" ', '</textarea>', $linkdo);
+  $linkdo=str_replace('" ', '</textarea>', $linkdo);
+echo '<body><center>'.$linkdo.'</center></body>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
 }
