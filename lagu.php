@@ -4,7 +4,7 @@
    .js-copytextarea{
  border:1px solid blue;border-left:5px solid blue;background:#eee;
  display:block;margin:5px 0 10px 0;word-break: break-all;
- text-align:left;width:50%;height:150px;overflow:auto;}
+ text-align:left;width:50%;height:80px;overflow:auto;}
   </style>
 <?php
 error_reporting(0);
@@ -46,7 +46,7 @@ $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu
 $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
 if(!empty($_GET['url'])){
-  $linkdownload=maling($bod, 'tracks:<br />', '<footer>');
+  $linkdownload=maling($bod, '/images/mega/logo.png', '<footer>');
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
   $linkdownload=str_replace('http://linkshrink.net/zfb5=', '', $linkdownload);
@@ -57,8 +57,6 @@ if(!empty($_GET['url'])){
   $linkdo=strip_tags($linkdownload, '<b><a>');
   $linkdo=str_replace('<a href="', '<p><textarea class="js-copytextarea">', $linkdo);
   $linkdo=str_replace('" ', '</textarea></p>', $linkdo);
-  $linkdo=str_replace('target', '<center>', $linkdo);
-  $linkdo=str_replace('</a>', '</center>', $linkdo);
   $linkdoo=strip_tags($linkdo, '<b><textarea><p>');
 echo '
 <body><center>
