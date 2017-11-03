@@ -1,3 +1,19 @@
+<html>
+  <script type='text/javascript'>
+var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
+copyTextareaBtn.addEventListener('click', function(event) {
+  var copyTextarea = document.querySelector('.js-copytextarea');
+  copyTextarea.select();
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+});
+</script>
+
 <?php
 error_reporting(0);
 function maling($content,$start,$end){
@@ -52,21 +68,7 @@ if(!empty($_GET['url'])){
   $linkdo=str_replace('target', '<center>', $linkdownload);
   $linkdo=str_replace('|', '</center>', $linkdownload);
   $linkdoo=strip_tags($linkdo, '<textarea><button><b><br><p>');
-echo '<html>
-<script type='text/javascript'>
-var copyTextareaBtn = document.querySelector('.js-textareacopybtn');
-copyTextareaBtn.addEventListener('click', function(event) {
-  var copyTextarea = document.querySelector('.js-copytextarea');
-  copyTextarea.select();
-  try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Copying text command was ' + msg);
-  } catch (err) {
-    console.log('Oops, unable to copy');
-  }
-});
-</script>
+echo '
 <body>
 <center>'.$linkdoo.'</center>
 </body>
