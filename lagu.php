@@ -62,16 +62,16 @@ if(!empty($_GET['url'])){
   $linkdownload=maling($bod, 'tracks:<br />', '<footer>');
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
+  $linkdownload=str_replace('http://linkshrink.net/zfb5=', '', $linkdownload);
+  $linkdownload=str_replace('http://q.gs/15745813/', '', $linkdownload);
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
   $linkdo=strip_tags($linkdownload, '<b><a><br>');
-  $linkdo=str_replace('http://linkshrink.net/zfb5=', '', $linkdownload);
-  $linkdo=str_replace('http://q.gs/15745813/', '', $linkdownload);
-  $linkdo=str_replace('<a href="', '<p><button class="js-textareacopybtn">Copy All</button><textarea class="js-copytextarea">', $linkdownload);
-  $linkdo=str_replace('" ', '</textarea></p>', $linkdownload);
-  $linkdo=str_replace('target', '<center>', $linkdownload);
-  $linkdo=str_replace('|', '</center>', $linkdownload);
+  $linkdo=str_replace('<a href="', '<p><button class="js-textareacopybtn">Copy All</button><textarea class="js-copytextarea">', $linkdo);
+  $linkdo=str_replace('" ', '</textarea></p>', $linkdo);
+  $linkdo=str_replace('target', '<center>', $linkdo);
+  $linkdo=str_replace('|', '</center>', $linkdo);
 echo '
 <body>
 <center>'.$linkdo.'</center>
