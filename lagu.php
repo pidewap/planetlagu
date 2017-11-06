@@ -45,6 +45,7 @@ $bod=str_replace('/"', '"', $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
+   $artist=maling($bod, 'description" content="',' - ');
 if(!empty($_GET['url'])){
   $linkdownload=maling($bod, '/images/mega/logo.png"/>', '<footer>');
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
@@ -61,8 +62,8 @@ if(!empty($_GET['url'])){
    $sc=str_replace('http://linkshrink.net/zfb5=https://userscloud.com/go/', '/sc.php?id=', $sc);
    $sc=str_replace('http://q.gs/15745813/https://userscloud.com/go/', '/sc.php?id=', $sc);
 echo '
-<body><center><textarea>'.$imgs.'</textarea>
-'.$linkdo.'<br />'.$sc.'<br />'.$hdesc.'
+<body><center><textarea>'.$imgs.'</textarea><br/>
+'.$linkdo.'<p></p>'.$sc.'<p></p>'.$artist.'<p></p>'.$hdesc.'
 </center>
 </body>
 </html>';
