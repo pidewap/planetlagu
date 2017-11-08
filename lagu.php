@@ -40,7 +40,7 @@ if(!empty($_GET['url'])){
 
 $f=file(''.$urr.'');
 $gg=@implode($f);
-$bod=maling($gg, '<body', '</body>');
+$bod=maling($gg, '</head>', '</html>');
 $bod=str_replace('/"', '"', $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?page=', $bod);
