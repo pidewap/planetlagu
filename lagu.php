@@ -51,7 +51,7 @@ if(!empty($_GET['url'])){
   $linkdownload=str_replace('https://k2nblog.com/download/', '', $linkdownload);
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
-   $alink = explode('<a href="' , $linkdownload);
+   $alink = explode('<a target="_blank" href="' , $linkdownload);
   $linkdownload=str_replace('http://linkshrink.net/zfb5=', '', $linkdownload);
   $linkdownload=str_replace('https://www.4shared.com', 'http://www.4shared.one', $linkdownload);
   $linkdownload=str_replace('http://q.gs/15745813/', '', $linkdownload);
