@@ -52,7 +52,6 @@ if(!empty($_GET['url'])){
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
    $alink = explode('<a href="' , $linkdownload);
-   $alinkk = explode('"',$alink[1]);
   $linkdownload=str_replace('http://linkshrink.net/zfb5=', '', $linkdownload);
   $linkdownload=str_replace('https://www.4shared.com', 'http://www.4shared.one', $linkdownload);
   $linkdownload=str_replace('http://q.gs/15745813/', '', $linkdownload);
@@ -65,7 +64,7 @@ if(!empty($_GET['url'])){
    $sc=str_replace('http://linkshrink.net/zfb5=https://userscloud.com/go/', '/sc.php?id=', $sc);
    $sc=str_replace('http://q.gs/15745813/https://userscloud.com/go/', '/sc.php?id=', $sc);
 echo '
-<body><center>'.$alinkk[0].'<br/>'.$alinkk[1].'<textarea>'.$imgs.'</textarea><br/>
+<body><center>'.print_r($link).'<br/>'.$alinkk[1].'<textarea>'.$imgs.'</textarea><br/>
 '.$linkdo.'<p></p>'.$sc.'<p></p>'.$artist.'<p></p>'.$hdesc.'
 </center>
 </body>
