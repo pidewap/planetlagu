@@ -51,11 +51,13 @@ if(!empty($_GET['url'])){
   $linkdownload=str_replace('https://k2nblog.com/download/', '', $linkdownload);
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
-   $alink=explode('<a target="_blank" href="' , $linkdownload);
-   $alinkk=explode('"', $alink);
-  $alinkk=str_replace('http://linkshrink.net/zfb5=', '', $alinkk);
-  $alinkk=str_replace('https://www.4shared.com', 'http://www.4shared.one', $alinkk);
-  $alinkk=str_replace('http://q.gs/15745813/', '', $alinkk);
+   $alink=explode('<a target="_blank" href="/lagu.php?url=' , $linkdownload);
+   for ($i=0; $i<count($alink); $i++) {
+  $alink[$i]=str_replace('http://linkshrink.net/zfb5=', '', $alinkk);
+  $alink[$i]=str_replace('https://www.4shared.com', 'http://www.4shared.one', $alinkk);
+  $alink[$i]=str_replace('http://q.gs/15745813/', '', $alinkk);
+      echo ''.$i.'. '.$alink[$i].'';
+   }
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
@@ -65,7 +67,7 @@ if(!empty($_GET['url'])){
    $sc=str_replace('http://linkshrink.net/zfb5=https://userscloud.com/go/', '/sc.php?id=', $sc);
    $sc=str_replace('http://q.gs/15745813/https://userscloud.com/go/', '/sc.php?id=', $sc);
 echo '
-<body><center>'.print_r(base64_decode($alinkk)).'<br/><textarea>'.$imgs.'</textarea><br/>
+<body><center><br/><textarea>'.$imgs.'</textarea><br/>
 '.$linkdo.'<p></p>'.$sc.'<p></p>'.$artist.'<p></p>'.$hdesc.'
 </center>
 </body>
