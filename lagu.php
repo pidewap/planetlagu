@@ -52,8 +52,13 @@ if(!empty($_GET['url'])){
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
    
+   $sc=maling($gg, 'individual tracks:<br />', '<!--endhidelink-->');
+   $sc=strip_tags($sc, '<a>');
+   
+   $linklink=''.$linkdownload.'<p></p>'.$sc.'';
+   
    $dom = new DOMDocument;
-@$dom->loadHTML($linkdownload, LIBXML_HTML_NODEFDTD);
+@$dom->loadHTML($linklink, LIBXML_HTML_NODEFDTD);
 $anchors = $dom->getElementsByTagName('a');
 foreach ($anchors as $anchor) {
     $anchor->setAttribute('href', '' . base64_decode($anchor->getAttribute('href')));
@@ -64,17 +69,15 @@ $result = $dom->saveHTML();
   $result=str_replace('http://linkshrink.net/zfb5=', '', $result);
   $result=str_replace('https://www.4shared.com', 'http://www.4shared.one', $result);
   $result=str_replace('http://q.gs/15745813/', '', $result);
+   $result=str_replace('http://linkshrink.net/zfb5=https://userscloud.com/go/', '/sc.php?id=', $result);
+   $result=str_replace('http://q.gs/15745813/https://userscloud.com/go/', '/sc.php?id=', $result);
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
   $linkdo=strip_tags($linkdownload, '<b><a><br>');
-   $sc=maling($gg, 'individual tracks:<br />', '<!--endhidelink-->');
-   $sc=strip_tags($sc, '<a>');
-   $sc=str_replace('http://linkshrink.net/zfb5=https://userscloud.com/go/', '/sc.php?id=', $sc);
-   $sc=str_replace('http://q.gs/15745813/https://userscloud.com/go/', '/sc.php?id=', $sc);
 echo '
-<body><center><textarea>'.$imgs.'</textarea><br/>
-'.$result.'<p></p>'.$sc.'<p></p>'.$artist.'<p></p>'.$hdesc.'
+<body><center><textarea>'.str_replace('https', 'http', $imgs).'</textarea><br/>
+'.$result.'<p></p>'.$artist.'<p></p>'.$hdesc.'
 </center>
 </body>
 </html>';
