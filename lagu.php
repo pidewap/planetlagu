@@ -51,6 +51,7 @@ if(!empty($_GET['url'])){
   $linkdownload=str_replace('/lagu.php?url=https://k2nblog.com/download/', '', $linkdownload);
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
+   
    $dom = new DOMDocument;
 @$dom->loadHTML($linkdownload, LIBXML_HTML_NODEFDTD);
 $anchors = $dom->getElementsByTagName('a');
@@ -72,7 +73,7 @@ $result = $dom->saveHTML();
    $sc=str_replace('http://linkshrink.net/zfb5=https://userscloud.com/go/', '/sc.php?id=', $sc);
    $sc=str_replace('http://q.gs/15745813/https://userscloud.com/go/', '/sc.php?id=', $sc);
 echo '
-<body><center>'.print_r($alink).'<br/><textarea>'.$imgs.'</textarea><br/>
+<body><center><textarea>'.$imgs.'</textarea><br/>
 '.$result.'<p></p>'.$sc.'<p></p>'.$artist.'<p></p>'.$hdesc.'
 </center>
 </body>
