@@ -72,6 +72,7 @@ $result = $dom->saveHTML();
   $result=str_replace('http://q.gs/15745813/', '', $result);
    $result=str_replace('http://linkshrink.net/zfb5=https://userscloud.com/go/', '/sc.php?id=', $result);
    $result=str_replace('http://q.gs/15745813/https://userscloud.com/go/', '/sc.php?id=', $result);
+   $result=str_replace('https://userscloud.com/go/', '/sc.php?id=', $result);
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
