@@ -34,13 +34,13 @@ $pages='page/'.$_GET['page'].'/';
 if(!empty($_GET['url'])){
   $urr=$_GET['url'];
 }else{
-  $urr='https://k2nblog.com/category/single-album/'.$pages.'';
+  $urr='https://k2nblog.com/category/genre/'.$pages.'';
 }
 
 
 $f=file(''.$urr.'');
 $gg=@implode($f);
-$bod=maling($gg, '</head>', '</html>');
+$bod=maling($gg, '<body data', '</html>');
 $bod=str_replace('/"', '"', $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?page=', $bod);
