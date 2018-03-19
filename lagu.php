@@ -34,7 +34,7 @@ $pages='page/'.$_GET['page'].'/';
 if(!empty($_GET['url'])){
   $urr=$_GET['url'];
 }else{
-  $urr='https://k2nblog.com/category/genre/'.$pages.'';
+  $urr='https://k2nblog.com/category/single-album/'.$pages.'';
 }
 
 
