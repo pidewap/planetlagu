@@ -53,10 +53,8 @@ $hasil=explode('<br />',$hasil[0]);
       $link=explode('. ',$hasil[$i]);
 $link=explode('<',$link[1]);
 $link=$link[0];
-     $bbg=''.$i.'. <strong>'.$artist.' - '.$link.'</strong> [<a href="/search/'.strtolower(str_replace(' ','-',$artist)).'-'.strtolower(str_replace(' ','-',$link)).'" target="_blank">Download</a>]<br>';
-      $bbg = htmlentities(htmlspecialchars($bbg));
-     echo $bbg;
-   }
+     echo '.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(str_replace(' ','-',$artist)).'-'.strtolower(str_replca('&', '', str_replace(' ','-',$link))).'\" target=\"_blank\">Download<\/a>]<br>';
+      }
   echo '"}</textarea>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
