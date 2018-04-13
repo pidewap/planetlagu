@@ -45,7 +45,7 @@ if(!empty($_GET['url'])){
   $genre=maling($content, 'Genre: ', '<');
   $lang=maling($content, 'Language: ', '<');
   $br=maling($content, 'Bit Rate: ', '<');
-  echo '<pre>{"title":"'.$tite.'","image":"'.str_replace('https', 'http', $imgs).'","date":"'.$rd.'","genre":"'.$genre.'","lang":"'.$lang.'","bitrate":"'.$br.'","content":"';
+  echo '<textarea>{"title":"'.$tite.'","image":"'.str_replace('https', 'http', $imgs).'","date":"'.$rd.'","genre":"'.$genre.'","lang":"'.$lang.'","bitrate":"'.$br.'","content":"';
    $hasil=explode('<p>Track',$bod);
 $hasil=explode('</p>',$hasil[1]);
 $hasil=explode('<br />',$hasil[0]);
@@ -54,9 +54,9 @@ $hasil=explode('<br />',$hasil[0]);
 $link=explode('<',$link[1]);
 $link=$link[0];
      $bbg=''.$i.'. <strong>'.$artist.' - '.$link.'</strong> [<a href="/search/'.strtolower(str_replace(' ','-',$artist)).'-'.strtolower(str_replace(' ','-',$link)).'" target="_blank">Download</a>]<br>';
-      echo htmlspecialchars($bbg);
+      echo htmlentities($bbg, ENT_QUOTES);
    }
-  echo '"}</pre>';
+  echo '"}</textarea>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
 }
