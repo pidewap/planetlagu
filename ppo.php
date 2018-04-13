@@ -45,7 +45,7 @@ if(!empty($_GET['url'])){
   $genre=maling($content, 'Genre: ', '<');
   $lang=maling($content, 'Language: ', '<');
   $br=maling($content, 'Bit Rate: ', '<');
-  echo '<input type='text' name='staff_pos' value="{"title":"'.$tite.'","image":"'.str_replace('https', 'http', $imgs).'","date":"'.$rd.'","genre":"'.$genre.'","lang":"'.$lang.'","bitrate":"'.$br.'","content":"';
+  echo '<input type="text" value="{"title":"'.$tite.'","image":"'.str_replace('https', 'http', $imgs).'","date":"'.$rd.'","genre":"'.$genre.'","lang":"'.$lang.'","bitrate":"'.$br.'","content":"';
    $hasil=explode('<p>Track',$bod);
 $hasil=explode('</p>',$hasil[1]);
 $hasil=explode('<br />',$hasil[0]);
