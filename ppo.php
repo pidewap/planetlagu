@@ -1,11 +1,3 @@
-<html>
-
-<style>
-   .js-copytextarea{
- border:1px solid blue;border-left:5px solid blue;background:#eee;
- display:block;margin:5px 0 10px 0;word-break: break-all;
- text-align:left;width:50%;height:50px;overflow:auto;}
-  </style>
 <?php
 error_reporting(0);
 function maling($content,$start,$end){
@@ -55,6 +47,15 @@ if(!empty($_GET['url'])){
   $genre=maling($content, 'Genre: ', '<');
   $lang=maling($content, 'Language: ', '<');
   $br=maling($content, 'Bit Rate: ', '<');
+   $hasil=explode('<p>Track List:',$hasil);
+$hasil=explode('</p>',$hasil[1]);
+$hasil=explode('.',$hasil[0]);
+   for($i=1;$i<count($hasil);$i++){
+      $link=explode('. ',$hasil[$i]);
+$link=explode('<',$link[1]);
+$link=$link[0];
+      echo $link;
+   }
 echo ''.str_replace('https', 'http', $imgs).'<br>artis: '.$artist.'<br>rd: '.$rd.'<br>genre: '.$genre.'<br>lang: '.$lang.'<br>br: '.$br.'<br>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
