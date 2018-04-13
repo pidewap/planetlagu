@@ -54,7 +54,7 @@ $hasil=explode('<br />',$hasil[0]);
       $link=explode('. ',$hasil[$i]);
 $link=explode('<',$link[1]);
 $link=$link[0];
-      echo $link;
+      echo ''.$link.'<br>';
    }
 echo ''.str_replace('https', 'http', $imgs).'<br>artis: '.$artist.'<br>rd: '.$rd.'<br>genre: '.$genre.'<br>lang: '.$lang.'<br>br: '.$br.'<br>';
 }else{
