@@ -39,7 +39,7 @@ $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/ppo.php?pa
 $bod=str_replace('https://k2nblog.com/', '/ppo.php?url=https://k2nblog.com/', $bod);
    $artist=maling($bod, 'description" content="',' - ');
 if(!empty($_GET['url'])){
-  $hdesc=maling($bod, '<p>Track List:', '</p>');
+  $tite=maling($bod, '<title>Download ', '</title>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
   $content=maling($bod, '<div class="td-post-content">', '<p>Track');
@@ -47,6 +47,7 @@ if(!empty($_GET['url'])){
   $genre=maling($content, 'Genre: ', '<');
   $lang=maling($content, 'Language: ', '<');
   $br=maling($content, 'Bit Rate: ', '<');
+  echo '<textarea>{"title":"'.$tite.'","image":"'.str_replace('https', 'http', $imgs).'","date":"'.$rd.'","genre":"'.$genre.'","lang":"'.$lang.'","bitrate":"'.$br.'","content":"';
    $hasil=explode('<p>Track',$bod);
 $hasil=explode('</p>',$hasil[1]);
 $hasil=explode('<br />',$hasil[0]);
@@ -54,9 +55,9 @@ $hasil=explode('<br />',$hasil[0]);
       $link=explode('. ',$hasil[$i]);
 $link=explode('<',$link[1]);
 $link=$link[0];
-      echo ''.$link.'<br>';
+      echo ''.$i.'. &lt;strong&gt;'.$artist.' - '.$link.'&lt;/strong&gt; [&lt;a href=&quot;/search/'.str_replace(' ','-',$artist).'-'.str_replace(' ','-',$link).'&quot; target=&quot;_blank&quot; class=&quot;btn&quot;&gt;Download&lt;/a&gt;]&lt;br&gt;';
    }
-echo ''.str_replace('https', 'http', $imgs).'<br>artis: '.$artist.'<br>rd: '.$rd.'<br>genre: '.$genre.'<br>lang: '.$lang.'<br>br: '.$br.'<br>';
+  echo '"}</textarea>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
 }
