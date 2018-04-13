@@ -39,7 +39,7 @@ $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/ppo.php?pa
 $bod=str_replace('https://k2nblog.com/', '/ppo.php?url=https://k2nblog.com/', $bod);
    $artist=maling($bod, 'description" content="',' - ');
 if(!empty($_GET['url'])){
-  $tite=maling($bod, '<title>Download ', '</title>');
+  $tite=maling($bod, '<h1 class="entry-title">', '</h1>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
   $content=maling($bod, '<div class="td-post-content">', '<p>Track');
