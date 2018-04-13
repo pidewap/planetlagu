@@ -54,7 +54,8 @@ $hasil=explode('<br />',$hasil[0]);
 $link=explode('<',$link[1]);
 $link=$link[0];
      $bbg=''.$i.'. <strong>'.$artist.' - '.$link.'</strong> [<a href="/search/'.strtolower(str_replace(' ','-',$artist)).'-'.strtolower(str_replace(' ','-',$link)).'" target="_blank">Download</a>]<br>';
-      echo mb_convert_encoding($bbg, "HTML-ENTITIES", "UTF-8");
+      $bbgg=mb_convert_encoding($bbg, "HTML-ENTITIES", "UTF-8");
+     echo $bbgg;
    }
   echo '"}</textarea>';
 }else{
