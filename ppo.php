@@ -47,9 +47,9 @@ if(!empty($_GET['url'])){
   $genre=maling($content, 'Genre: ', '<');
   $lang=maling($content, 'Language: ', '<');
   $br=maling($content, 'Bit Rate: ', '<');
-   $hasil=explode('<p>Track List:',$hasil);
+   $hasil=explode('<p>Track',$bod);
 $hasil=explode('</p>',$hasil[1]);
-$hasil=explode('.',$hasil[0]);
+$hasil=explode('<br />',$hasil[0]);
    for($i=1;$i<count($hasil);$i++){
       $link=explode('. ',$hasil[$i]);
 $link=explode('<',$link[1]);
