@@ -53,7 +53,7 @@ $hasil=explode('<br />',$hasil[0]);
       $link=explode('. ',$hasil[$i]);
 $link=explode('<',$link[1]);
 $link=$link[0];
-     echo '.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(str_replace(' ','-',$artist)).'-'.strtolower(str_replca('&', '', str_replace(' ','-',$link))).'\" target=\"_blank\">Download<\/a>]<br>';
+     echo '.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(str_replace(' ','-',$artist)).'-'.strtolower(str_replace('&', '', str_replace(' ','-',$link))).'\" target=\"_blank\">Download<\/a>]<br>';
       }
   echo '"}</textarea>';
 }else{
