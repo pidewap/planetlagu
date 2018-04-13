@@ -14,8 +14,6 @@ $uar=array('Nokia2610/2.0 (07.04a) Profile/MIDP-2.0 Configuration/CLDC-1.1 UP.Li
 $uarr=array_rand($uar);
 $uarand=$uar[$uarr];
 
-ini_set('default_charset',"UTF-8");
-ini_set('user_agent',$uarand."\r\naccept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1\r\naccept_charset: $_SERVER[HTTP_ACCEPT_CHARSET]\r\naccept_language: bahasa");
 
 if(!empty($_GET['page'])){
 $pages='page/'.$_GET['page'].'/';
