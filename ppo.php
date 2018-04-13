@@ -54,7 +54,7 @@ $hasil=explode('<br />',$hasil[0]);
 $link=explode('<',$link[1]);
 $link=$link[0];
      $bbg=''.$i.'. <strong>'.$artist.' - '.$link.'</strong> [<a href="/search/'.strtolower(str_replace(' ','-',$artist)).'-'.strtolower(str_replace(' ','-',$link)).'" target="_blank">Download</a>]<br>';
-      echo htmlentities($bbg);
+      echo htmlentities(htmlspecialchars($bbg));
    }
   echo '"}</textarea>';
 }else{
