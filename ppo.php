@@ -46,7 +46,7 @@ if(!empty($_GET['url'])){
   $lang=maling($content, 'Language: ', '<');
   $br=maling($content, 'Bit Rate: ', '<');
   echo '<textarea id="code" data-cm-size="2" name="data" style="width: 100%; min-height: 50px" rows="5">{"title":"'.$tite.'","image":"'.str_replace('https', 'http', $imgs).'","date":"'.$rd.'","genre":"'.$genre.'","lang":"'.$lang.'","bitrate":"'.$br.'","content":"';
-   $hasil=explode('<p>Track',$bod);
+   $hasil=explode('<p>Track List:',$bod);
 $hasil=explode('</p>',$hasil[1]);
 $hasil=explode('<br />',$hasil[0]);
   $hasil = preg_replace("/\d+/u","<new>",$hasil);
