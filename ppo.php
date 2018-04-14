@@ -51,9 +51,9 @@ $hasil=explode('</p>',$hasil[1]);
 $hasil=explode('<br />',$hasil[0]);
    for($i=1;$i<count($hasil);$i++){
       $link=explode('. ',$hasil[$i]);
-$link=explode('<',$link[1]);
+$link=explode('<b',$link[1]);
 $link=$link[0];
-     echo ''.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(str_replace(' ','-',$artist)).'-'.str_replace('&', '', strtolower(str_replace(' ','-',$link))).'\" target=\"_blank\">Download<\/a>]<br>';
+     echo ''.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(preg_replace("/[^A-Za-z0-9[:space:]]/","",$artist)).'-'.strtolower(preg_replace("/[^A-Za-z0-9[:space:]]/","",$link)).'\" target=\"_blank\">Download<\/a>]<br>';
       }
   echo '"}</textarea>';
 }else{
