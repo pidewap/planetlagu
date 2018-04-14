@@ -49,12 +49,13 @@ if(!empty($_GET['url'])){
    $hasil=explode('<p>Track List:',$bod);
 $hasil=explode('</p>',$hasil[1]);
 $hasil=explode('<br />',$hasil[0]);
+  $hasil = str_replace('&#038;', '&', $hasil);
   $hasil = preg_replace("/\d+/u","<new>",$hasil);
    for($i=1;$i<count($hasil);$i++){
       $link=explode('<new>. ',$hasil[$i]);
 $link=explode('<b',$link[1]);
 $link=$link[0];
-     echo ''.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(preg_replace("/[^A-Za-z0-9[:space:]]/","",$artist)).'-'.strtolower(preg_replace("/[^A-Za-z0-9[:space:]]/","",$link)).'\" target=\"_blank\">Download<\/a>]<br>';
+     echo ''.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(preg_replace("/[^A-Za-z0-9[:space:]]/","",str_replace(' ', '-' ,$artist))).'-'.strtolower(preg_replace("/[^A-Za-z0-9[:space:]]/","",str_replace(' ', '-' ,$link))).'\" target=\"_blank\">Download<\/a>]<br>';
       }
   echo '"}</textarea>';
 }else{
