@@ -57,7 +57,20 @@ $link=explode('<br',$link[1]);
 $link=$link[0];
      echo ''.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(urlencode($artist)).'+-+'.strtolower(urlencode($link)).'\" target=\"_blank\">Download<\/a>]<br>';
       }
-  echo '"}</textarea>';
+  echo '"}</textarea><br><br>
+  <form action="http://satriamusic.com/admin" method="post" name="form"><div class="menu">
+  <span class="red">*</span> Title:<br/><input type="text" name="title" id="title"  value="'.$tite.'" required=""/><br/>
+		Thumbnail:<br/><input type="text" name="thumb" id="url" value="'.str_replace('https', 'http', $imgs).'" /><br/>
+      genre:<br/><input type="text" name="genre" id="genre"  value="'.$genre.'" required=""/><br/>
+      bitrate:<br/><input type="text" name="bitrate" id="bitrate"  value="'.$br.'" required=""/><br/>
+      lang:<br/><input type="text" name="lang" id="lang"  value="'.$lang.'" required=""/><br/>
+      date:<br/><input type="text" name="date" id="date"  value="'.$date.'" required=""/><br/>
+      <span class="red">*</span> Content: <br/><textarea rows="10" name="noidung" id="msg">'.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(urlencode($artist)).'+-+'.strtolower(urlencode($link)).'\" target=\"_blank\">Download<\/a>]<br></textarea><br/>
+		Keywords: separated by commas <span class="red">, </span><br/>
+    <input type="text" name="key" value="" required=""/><br/>
+    <span class="red">*</span> Categories:<br/>
+    <select name="idcm" style="max-width:50%;"><option value="">Select category</option><optgroup label="-- Kpop --"><option value="soundtrack">Soundtrack</option><option value="single">Single</option><option value="album">Album</option></optgroup></select><br/></div>
+    <div class="menu"><input name="" type="submit" value="Post"></div></form>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
 }
