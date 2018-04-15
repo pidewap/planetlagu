@@ -45,7 +45,14 @@ if(!empty($_GET['url'])){
   $genre=maling($content, 'Genre: ', '<');
   $lang=maling($content, 'Language: ', '<');
   $br=maling($content, 'Bit Rate: ', '<');
-  echo '<textarea id="code" data-cm-size="2" name="data" style="width: 100%; min-height: 50px" rows="5">{"title":"'.$tite.'","image":"'.str_replace('https', 'http', $imgs).'","date":"'.$rd.'","genre":"'.$genre.'","lang":"'.$lang.'","bitrate":"'.$br.'","content":"';
+  echo '<form action="http://satriamusic.com/admin" method="post" name="form"><div class="menu">
+  <span class="red">*</span> Title:<br/><input type="text" name="title" id="title"  value="'.$tite.'" required=""/><br/>
+		Thumbnail:<br/><input type="text" name="thumb" id="url" value="'.str_replace('https', 'http', $imgs).'" /><br/>
+      genre:<br/><input type="text" name="genre" id="genre"  value="'.$genre.'" required=""/><br/>
+      bitrate:<br/><input type="text" name="bitrate" id="bitrate"  value="'.$br.'" required=""/><br/>
+      lang:<br/><input type="text" name="lang" id="lang"  value="'.$lang.'" required=""/><br/>
+      date:<br/><input type="text" name="date" id="date"  value="'.$rd.'" required=""/><br/>
+      <span class="red">*</span> Content: <br/><textarea rows="10" name="noidung" id="msg">';
    $hasil=explode('<p>Track List:',$bod);
 $hasil=explode('</p>',$hasil[1]);
 $hasil=explode('<br />',$hasil[0]);
@@ -55,17 +62,9 @@ $hasil=explode('<br />',$hasil[0]);
       $link=explode('<new>. ',$hasil[$i]);
 $link=explode('<br',$link[1]);
 $link=$link[0];
-     echo ''.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(urlencode($artist)).'+-+'.strtolower(urlencode($link)).'\" target=\"_blank\">Download<\/a>]<br>';
+     echo ''.$i.'. <strong>'.$artist.' - '.$link.'</strong> [<a href="/search/'.strtolower(urlencode($artist)).'+-+'.strtolower(urlencode($link)).'" target="_blank">Download</a>]<br>';
       }
-  echo '"}</textarea><br><br>
-  <form action="http://satriamusic.com/admin" method="post" name="form"><div class="menu">
-  <span class="red">*</span> Title:<br/><input type="text" name="title" id="title"  value="'.$tite.'" required=""/><br/>
-		Thumbnail:<br/><input type="text" name="thumb" id="url" value="'.str_replace('https', 'http', $imgs).'" /><br/>
-      genre:<br/><input type="text" name="genre" id="genre"  value="'.$genre.'" required=""/><br/>
-      bitrate:<br/><input type="text" name="bitrate" id="bitrate"  value="'.$br.'" required=""/><br/>
-      lang:<br/><input type="text" name="lang" id="lang"  value="'.$lang.'" required=""/><br/>
-      date:<br/><input type="text" name="date" id="date"  value="'.$rd.'" required=""/><br/>
-      <span class="red">*</span> Content: <br/><textarea rows="10" name="noidung" id="msg">'.$i.'. <strong>'.$artist.' - '.$link.'</strong> [<a href="/search/'.strtolower(urlencode($artist)).'+-+'.strtolower(urlencode($link)).'" target="_blank">Download</a>]<br></textarea><br/>
+  echo '</textarea><br/>
 		Keywords: separated by commas <span class="red">, </span><br/>
     <input type="text" name="key" value="" required=""/><br/>
     <span class="red">*</span> Categories:<br/>
