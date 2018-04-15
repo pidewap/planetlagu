@@ -64,8 +64,8 @@ $link=$link[0];
       genre:<br/><input type="text" name="genre" id="genre"  value="'.$genre.'" required=""/><br/>
       bitrate:<br/><input type="text" name="bitrate" id="bitrate"  value="'.$br.'" required=""/><br/>
       lang:<br/><input type="text" name="lang" id="lang"  value="'.$lang.'" required=""/><br/>
-      date:<br/><input type="text" name="date" id="date"  value="'.$date.'" required=""/><br/>
-      <span class="red">*</span> Content: <br/><textarea rows="10" name="noidung" id="msg">'.$i.'. <strong>'.$artist.' - '.$link.'<\/strong> [<a href=\"\/search\/'.strtolower(urlencode($artist)).'+-+'.strtolower(urlencode($link)).'\" target=\"_blank\">Download<\/a>]<br></textarea><br/>
+      date:<br/><input type="text" name="date" id="date"  value="'.$rd.'" required=""/><br/>
+      <span class="red">*</span> Content: <br/><textarea rows="10" name="noidung" id="msg">'.$i.'. <strong>'.$artist.' - '.$link.'</strong> [<a href="/search/'.strtolower(urlencode($artist)).'+-+'.strtolower(urlencode($link)).'" target="_blank">Download</a>]<br></textarea><br/>
 		Keywords: separated by commas <span class="red">, </span><br/>
     <input type="text" name="key" value="" required=""/><br/>
     <span class="red">*</span> Categories:<br/>
