@@ -1,11 +1,3 @@
-<html>
-
-<style>
-   .js-copytextarea{
- border:1px solid blue;border-left:5px solid blue;background:#eee;
- display:block;margin:5px 0 10px 0;word-break: break-all;
- text-align:left;width:50%;height:50px;overflow:auto;}
-  </style>
 <?php
 error_reporting(0);
 function maling($content,$start,$end){
@@ -40,7 +32,7 @@ if(!empty($_GET['url'])){
 
 $f=file(''.$urr.'');
 $gg=@implode($f);
-$bod=maling($gg, '<body data', '</html>');
+$bod=maling($gg, '</head>', '</html>');
 $bod=str_replace('/"', '"', $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
 $bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?page=', $bod);
@@ -77,12 +69,9 @@ $result = $dom->saveHTML();
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
   $linkdo=strip_tags($linkdownload, '<b><a><br>');
-echo '
-<body><center><textarea>'.str_replace('https', 'http', $imgs).'</textarea><br/>
+echo '<center><textarea>'.str_replace('https', 'http', $imgs).'</textarea><br/>
 '.$result.'<p></p>'.$artist.'<p></p>'.$hdesc.'
-</center>
-</body>
-</html>';
+</center>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
 }
