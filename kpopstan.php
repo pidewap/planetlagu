@@ -34,15 +34,16 @@ $f=file(''.$urr.'');
 $gg=@implode($f);
 $bod=maling($gg, '</head>', '</html>');
 $bod=str_replace('/"', '"', $bod);
-$bod=str_replace('https://kpopstan.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
-$bod=str_replace('https://kpopstan.com/category/single-album/page/', '/lagu.php?page=', $bod);
-$bod=str_replace('https://kpopstan.com/', '/lagu.php?url=https://kpopstan.com/', $bod);
+$bod=str_replace('https://kpopstan.com/category/single-album/k-pop/page/', '/kpopstan.php?page=', $bod);
+$bod=str_replace('https://kpopstan.com/category/single-album/page/', '/kpopstan.php?page=', $bod);
+$bod=str_replace('https://kpopstan.com/', '/kpopstan.php?url=https://kpopstan.com/', $bod);
    $artist=maling($bod, 'description" content="',' - ');
 if(!empty($_GET['url'])){
   $sc=maling($gg, 'hostimg/mirror.png"/>', '<!--endhidelink-->');
    $sc=str_replace('http://j.gs/21989111/https://kpopstan.com/gotothedl.html?url=', '', $sc);
    $sc=strip_tags($sc, '<a>');
-  
+  $scx=maling($sc, 'href="', '"');
+  $scx=base64_decode($scx);
   $hdesc=maling($bod, '<p>Track List:', '</p>');
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
