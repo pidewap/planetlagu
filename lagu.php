@@ -26,7 +26,7 @@ $pages='page/'.$_GET['page'].'/';
 if(!empty($_GET['url'])){
   $urr=$_GET['url'];
 }else{
-  $urr='https://k2nblog.com/category/single-album/'.$pages.'';
+  $urr='https://kpopstan.com/category/single-album/'.$pages.'';
 }
 
 
@@ -34,18 +34,18 @@ $f=file(''.$urr.'');
 $gg=@implode($f);
 $bod=maling($gg, '</head>', '</html>');
 $bod=str_replace('/"', '"', $bod);
-$bod=str_replace('https://k2nblog.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
-$bod=str_replace('https://k2nblog.com/category/single-album/page/', '/lagu.php?page=', $bod);
-$bod=str_replace('https://k2nblog.com/', '/lagu.php?url=https://k2nblog.com/', $bod);
+$bod=str_replace('https://kpopstan.com/category/single-album/k-pop/page/', '/lagu.php?page=', $bod);
+$bod=str_replace('https://kpopstan.com/category/single-album/page/', '/lagu.php?page=', $bod);
+$bod=str_replace('https://kpopstan.com/', '/lagu.php?url=https://kpopstan.com/', $bod);
    $artist=maling($bod, 'description" content="',' - ');
 if(!empty($_GET['url'])){
   $linkdownload=maling($bod, '/images/mega/logo.png"/>', '<footer>');
-  $linkdownload=str_replace('/lagu.php?url=https://k2nblog.com/download/', '', $linkdownload);
+  $linkdownload=str_replace('/lagu.php?url=https://kpopstan.com/download/', '', $linkdownload);
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
    
    $sc=maling($gg, 'individual tracks:<br />', '<!--endhidelink-->');
-   $sc=str_replace('https://k2nblog.com/download.html?u=', '', $sc);
+   $sc=str_replace('https://kpopstan.com/gotothedl.html?url=', '', $sc);
    $sc=strip_tags($sc, '<a>');
    
    $linklink=''.$linkdownload.'<p></p>'.$sc.'';
