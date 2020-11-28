@@ -48,7 +48,7 @@ if(!empty($_GET['url'])){
   $artist=maling($gg, 'property="og:description" content="', ' - ');
   $imgs=maling($gg, '<p><center><img src="', '"');
 echo '<center><textarea>'.str_replace('https', 'http', $imgs).'</textarea><br/>
-'.$sc.'<p></p>'.$artist.'<p></p>'.$hdesc.'
+<a href="'.$scx.'">Mirror</a><p></p>'.$artist.'<p></p>'.$hdesc.'
 </center>';
 }else{
 echo strip_tags($bod, '<a><div><p><br>');
