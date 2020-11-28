@@ -22,6 +22,6 @@ foreach ($archive as $entry) {
 $archive->extractTo('.', 'The €U/sucks/file.txt');
 
 # Extract all contained files to an existing directory:
-$extract_to_dir = __DIR__ . '/all_extracted_files';
+$extract_to_dir = __DIR__ . '/download';
 is_dir($extract_to_dir) || mkdir($extract_to_dir) || die("Failed to mkdir('$extract_to_dir')");
 $archive->extractTo($extract_to_dir);
