@@ -39,7 +39,7 @@ $bod=str_replace('https://kpopstan.com/category/single-album/page/', '/lagu.php?
 $bod=str_replace('https://kpopstan.com/', '/lagu.php?url=https://kpopstan.com/', $bod);
    $artist=maling($bod, 'description" content="',' - ');
 if(!empty($_GET['url'])){
-  $linkdownload=maling($bod, '/images/mega/logo.png"/>', '<footer>');
+  $linkdownload=maling($bod, '/images/hostimg/mirror.png"/>', '<footer>');
   $linkdownload=str_replace('/lagu.php?url=https://kpopstan.com/download/', '', $linkdownload);
   $linkdownload=str_replace('iTunes:', '<b>iTunes:</b>', $linkdownload);
   $linkdownload=str_replace('MP3:', '<b>MP3:</b>', $linkdownload);
