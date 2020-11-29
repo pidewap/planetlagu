@@ -6,7 +6,7 @@ if($url)
 {
     $file = fopen($url,"rb");
     $directory = "download/";
-    $valid_exts = array("mp3", "7zip", "zip", "rar", "m4a", "php","jpeg","gif","png","doc","docx","jpg","html","asp","xml","JPEG","bmp"); 
+    $valid_exts = array("mp3", "7z", "zip", "rar", "m4a", "php","jpeg","gif","png","doc","docx","jpg","html","asp","xml","JPEG","bmp"); 
     $ext = end(explode(".",strtolower(basename($url))));
     if(in_array($ext,$valid_exts))
     {
