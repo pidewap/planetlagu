@@ -18,7 +18,7 @@
 <?php
 
 // maximum execution time in seconds
-set_time_limit (24 * 60 * 60);
+set_time_limit (0);
 
 if (!isset($_POST['submit'])) die();
 
