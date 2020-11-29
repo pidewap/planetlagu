@@ -1,5 +1,6 @@
 <?php
 error_reporting(0);
+set_time_limit (0);
 $get_url = $_POST["url"];
 $url = trim($get_url);
 if($url)
